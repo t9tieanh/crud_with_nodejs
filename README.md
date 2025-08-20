@@ -2,26 +2,28 @@
 
 ## 1. Cấu hình kết nối Database
 
-Ứng dụng sử dụng file `src/config/config.json` để cấu hình kết nối đến cơ sở dữ liệu (MongoDB).
+Ứng dụng sử dụng file `src/config/config.json` để cấu hình kết nối đến cơ sở dữ liệu **MySQL**.
 
 ### Ví dụ cấu hình:
 
 ```json
 {
   "development": {
-    "username": "<tên người dùng mongo>",
-    "password": "<mật khẩu mongo>",
+    "username": "root",
+    "password": "<mật khẩu mysql>",
     "database": "<tên database>",
-    "host": "localhost",
-    "dialect": "mongodb"
+    "host": "127.0.0.1",
+    "port": 3306,
+    "dialect": "mysql",
+    "logging": false
   }
 }
 ```
 
 **Lưu ý:**
 
-- Thay thế `<tên người dùng mongo>`, `<mật khẩu mongo>`, `<tên database>` bằng thông tin thực tế của bạn.
-- Nếu MongoDB không yêu cầu username/password, có thể để trống 2 trường này.
+- Thay thế `<mật khẩu mysql>`, `<tên database>` bằng thông tin thực tế của bạn.
+- Đảm bảo MySQL đã được cài đặt và đang chạy trên máy tính của bạn.
 
 ## 2. Cài đặt package
 
@@ -36,9 +38,14 @@ npm install
 Chạy lệnh:
 
 ```powershell
-npm run dev
+npm start
 ```
 
+Hoặc:
+
+```powershell
+node server.js
+```
 
 ## 4. Truy cập ứng dụng
 
@@ -52,4 +59,4 @@ Bạn có thể thay đổi port trong file `server.js` nếu muốn.
 
 ---
 
-Nếu gặp lỗi kết nối database, kiểm tra lại thông tin trong `src/config/config.json` và đảm bảo MongoDB đang chạy trên máy của bạn.
+Nếu gặp lỗi kết nối database, kiểm tra lại thông tin trong `src/config/config.json` và đảm bảo MySQL đang chạy trên máy của bạn.
